@@ -1,12 +1,25 @@
-const { app, BrowserWindow } = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 
-app.on('ready', () => {
-    let win = new BrowserWindow({
-        width: 400, height: 400,
+let win = []
+
+function createWindow() {
+    let lastWindow = new BrowserWindow({
+        width: 300,
+        height: 500,
+        frame: false,
         webPreferences: {
             nodeIntegration: true
         }
     })
 
-    win.loadFile('src/index.html')
+    lastWindow.loadFile('src/index.html')
+
+    win.push(lastWindow)
+}
+
+ipcMain.on('new-note', (e, args) => {
+    createWindow()
+    e.sender.send('created-window', 'Window created')
 })
+
+app.on('ready', createWindow)
