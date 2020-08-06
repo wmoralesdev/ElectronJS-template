@@ -30,13 +30,11 @@ nav {
     align-items: center;
 }
 
-
-/* nueva */
-
 span {
     user-select: none;
     -webkit-app-region: drag;
     width: calc(100% - 3 * var(--button-width));
+    height: 5vh;
     background-color: red;
     padding-left: 16px;
 }
