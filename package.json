@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/Walter26/ElectronJS-template#readme",
   "dependencies": {
-    "electron": "^9.1.1",
+    "electron": "^13.6.6",
     "nodemon": "^2.0.4"
   }
 }
